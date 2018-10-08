@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<title>管理中心 - 修改数据 </title>
+<head>
+<title>管理中心 - 添加新记录 </title>
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="/css/general.css" rel="stylesheet" type="text/css" />
@@ -8,27 +9,26 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="/brand/index">数据列表</a></span>
+    <span class="action-span"><a href="/admin/index">数据列表</a></span>
     <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
-    <span id="search_id" class="action-span1"> - 修改数据 </span>
+    <span id="search_id" class="action-span1"> - 添加新记录 </span>
     <div style="clear:both"></div>
 </h1>
 <div class="main-div">
-    <form action="/brand/update?id=<?=$data['id']?>" method="post" enctype="multipart/form-data">
+    <form action="" method="post" name="theForm" enctype="multipart/form-data">
         <table width="100%" id="general-table">
                         <tr>
-                <td class="label">品牌名称:</td>
+                <td class="label">用户名</td>
                 <td>
-                                            <input type='text' size="80" name='brand_name' value='<?=$data['brand_name']?>'>
+                                            <input type='text' size="80" name='username'>
                                         <font color="red">*</font>
                 </td>
             </tr>
                         <tr>
-                <td class="label">LOGO:</td>
+                <td class="label">密码</td>
                 <td>
-                    <div class='img_preview'><img src="<?=$data['logo']?>" width='120' height='120'></div>
-                    <input type="file" class="preview" name="logo">
-                    <font color="red">*</font>
+                                            <input type='text' size="80" name='password'>
+                                        <font color="red">*</font>
                 </td>
             </tr>
                     </table>
@@ -37,10 +37,9 @@
             <input type="reset" value=" 重置 " />
         </div>
     </form>
-    
 </div>
+
+<div id="footer">商城后台2016</div>
 
 </body>
 </html>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/img_preview.js"></script>

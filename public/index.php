@@ -49,3 +49,9 @@ function back(){
 
     header("Location:".$$_SERVER['HTTP_REFERER']);
 }
+
+function redirect($route){
+
+    header("Location:".$route);
+    exit;
+}

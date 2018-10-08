@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="/brand/create">添加新记录</a></span>
+    <span class="action-span"><a href="/admin/create">添加新记录</a></span>
     <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
     <span id="search_id" class="action-span1"> - 数据列表 </span>
     <div style="clear:both"></div>
@@ -18,17 +18,17 @@
     <table cellpadding="3" cellspacing="1">
         <tr>
                         <th>ID</th>
-                        <th>品牌名称</th>
-                        <th>LOGO</th>
+                        <th>用户名</th>
+                        <th>密码</th>
                         <th>操作</th>
         </tr>
         <?php foreach($data as $v): ?>        <tr>
                         <td><?=$v['id']?></td>
-                        <td><?=$v['brand_name']?></td>
-                        <td><img src="<?=$v['logo']?>" width="80" height="50" alt=""></td>
+                        <td><?=$v['username']?></td>
+                        <td><?=$v['password']?></td>
                         <td>
-                <a href="/brand/edit?id=<?=$v['id']?>">修改</a>
-                <a onclick="return confirm('确定要删除吗？');" href="/brand/delete?id=<?=$v['id']?>">删除</a>
+                <a href="/admin/edit?id=<?=$v['id']?>">修改</a>
+                <a onclick="return confirm('确定要删除吗？');" href="/admin/delete?id=<?=$v['id']?>">删除</a>
             </td>
         </tr>
         <?php endforeach; ?>    </table>

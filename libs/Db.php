@@ -41,8 +41,9 @@ class Db
         return $this->_pdo->exec($sql);
     }
 
-    public function query($sql){
-        
-        return $this->_pdo->query($sql);
+    // 获取最新添加的记录的ID
+    public function lastInsertId()
+    {
+        return $this->_pdo->lastInsertId();
     }
 }

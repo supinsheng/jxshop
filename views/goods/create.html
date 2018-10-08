@@ -17,7 +17,7 @@
         <div style="clear:both"></div>
     </h1>
     <div class="main-div">
-        <form action="" method="post" name="theForm" enctype="multipart/form-data">
+        <form action="/goods/insert" method="post" name="theForm" enctype="multipart/form-data">
             <table width="100%" id="general-table">
                 <tr>
                     <td class="label">商品名称</td>
@@ -29,7 +29,7 @@
                 <tr>
                     <td class="label">LOGO</td>
                     <td>
-                        <input type='text' size="80" name='logo'>
+                        <input type='file' size="80" name='logo'>
                         <font color="red">*</font>
                     </td>
                 </tr>
@@ -102,12 +102,7 @@
                             <font color="red">*</font>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="label"></td>
-                        <td>
-                            <input onclick="del_attr(this)" type="button" value="删除">
-                        </td>
-                    </tr>
+                    
                 </table>
             </div>
 

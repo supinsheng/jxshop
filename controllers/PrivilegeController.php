@@ -1,42 +1,38 @@
 <?php
 namespace controllers;
 
-use models\Category;
+use models\Privilege;
 
-class CategoryController{
+class PrivilegeController{
     // 列表页
     public function index()
     {
-        $model = new Category;
-        $data = $model->findAll([
-            'order_by'=> "CONCAT(path,id,'-')",
-            'order_way'=> 'asc',
-            'per_page'=>99999999999,
-        ]);
-        view('category/index', $data);
+        $model = new Privilege;
+        $data = $model->findAll();
+        view('privilege/index', $data);
     }
 
     // 显示添加的表单
     public function create()
     {
-        view('category/create');
+        view('privilege/create');
     }
 
     // 处理添加表单
     public function insert()
     {
-        $model = new Category;
+        $model = new Privilege;
         $model->fill($_POST);
         $model->insert();
-        redirect('/category/index');
+        redirect('/privilege/index');
     }
 
     // 显示修改的表单
     public function edit()
     {
-        $model = new Category;
+        $model = new Privilege;
         $data=$model->findOne($_GET['id']);
-        view('category/edit', [
+        view('privilege/edit', [
             'data' => $data,    
         ]);
     }
@@ -44,17 +40,17 @@ class CategoryController{
     // 修改表单的方法
     public function update()
     {
-        $model = new Category;
+        $model = new Privilege;
         $model->fill($_POST);
         $model->update($_GET['id']);
-        redirect('/category/index');
+        redirect('/privilege/index');
     }
 
     // 删除
     public function delete()
     {
-        $model = new Category;
+        $model = new Privilege;
         $model->delete($_GET['id']);
-        redirect('/category/index');
+        redirect('/privilege/index');
     }
 }
