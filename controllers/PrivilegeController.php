@@ -3,7 +3,7 @@ namespace controllers;
 
 use models\Privilege;
 
-class PrivilegeController{
+class PrivilegeController extends BaseController{
     // 列表页
     public function index()
     {

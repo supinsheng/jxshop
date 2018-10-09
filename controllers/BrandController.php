@@ -3,7 +3,7 @@ namespace controllers;
 
 use models\Brand;
 
-class BrandController{
+class BrandController extends BaseController{
     // 列表页
     public function index()
     {

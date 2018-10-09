@@ -3,7 +3,7 @@ namespace controllers;
 
 use models\Category;
 
-class CategoryController{
+class CategoryController extends BaseController{
     // 列表页
     public function index()
     {

@@ -2,7 +2,7 @@ namespace controllers;
 
 use models\<?=$mname?>;
 
-class <?=$cname?>
+class <?=$cname?> extends BaseController
 {
     // 列表页
     public function index()

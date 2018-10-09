@@ -2,6 +2,7 @@
 
 define("ROOT",dirname(__FILE__)."/../");  
 require('C:/Su/MVC/vendor/autoload.php');
+session_start();
 
 function autoload($class){
 

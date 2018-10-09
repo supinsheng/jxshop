@@ -3,7 +3,7 @@ namespace controllers;
 
 use models\Role;
 
-class RoleController{
+class RoleController extends BaseController{
     // 列表页
     public function index()
     {
@@ -45,8 +45,16 @@ class RoleController{
     {
         $model = new Role;
         $data=$model->findOne($_GET['id']);
+
+        // 取出权限的数据
+        $priModel = new \models\Privilege;
+        $priData = $priModel->tree();
+        $priIds = $model->getPriIds($_GET['id']);
+
         view('role/edit', [
-            'data' => $data,    
+            'data' => $data, 
+            'priData'=>$priData,
+            'priIds'=>$priIds
         ]);
     }
 
