@@ -84,3 +84,23 @@ insert into admin(id,username,password) VALUES
 (1,'root','21232f297a57a5a743894a0e4a801fc3'),
 (2,'tom','21232f297a57a5a743894a0e4a801fc3'),
 (3,'jack','21232f297a57a5a743894a0e4a801fc3');
+
+drop table if exists article_category;
+create table article_category
+(
+    id int unsigned not null auto_increment comment 'ID',
+    cat_name varchar(255) not null comment '分类名称',
+    primary key (id)
+)engine=InnoDB comment='文章分类表';
+
+drop table if exists article;
+create table article
+(
+    id int unsigned not null auto_increment comment 'ID',
+    title varchar(255) not null comment '标题',
+    content longtext comment '文章内容',
+    created_at datetime not null default current_timestamp comment '发表时间',
+    link varchar(255) comment '跳转的地址',
+    article_category int unsigned not null comment '关联的分类ID',
+    primary key (id)
+)engine=InnoDB comment='文章表';
