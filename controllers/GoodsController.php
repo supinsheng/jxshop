@@ -1,10 +1,7 @@
 <?php
 namespace controllers;
-
 use models\Goods;
-
 class GoodsController extends BaseController{
-
     // 获取子分类
     public function ajax_get_cat(){
         
@@ -22,7 +19,6 @@ class GoodsController extends BaseController{
         $data = $model->findAll();
         view('goods/index', $data);
     }
-
     // 显示添加的表单
     public function create()
     {
@@ -30,7 +26,6 @@ class GoodsController extends BaseController{
         $topCat = $model->getCat();
         view('goods/create',['topCat'=>$topCat['data']]);
     }
-
     // 处理添加表单
     public function insert()
     {
@@ -39,13 +34,11 @@ class GoodsController extends BaseController{
         $model->insert();
         redirect('/goods/index');
     }
-
     // 显示修改的表单
     public function edit()
     {
         $model = new Goods;
         $data=$model->getFullInfo($_GET['id']);
-
         $category = new \models\Category;
         $topCat = $category->getCat();
         view('goods/edit', [
@@ -53,7 +46,6 @@ class GoodsController extends BaseController{
             'topCat'=>$topCat['data']
         ]);
     }
-
     // 修改表单的方法
     public function update()
     {
@@ -62,7 +54,6 @@ class GoodsController extends BaseController{
         $model->update($_GET['id']);
         redirect('/goods/index');
     }
-
     // 删除
     public function delete()
     {

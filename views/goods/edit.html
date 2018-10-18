@@ -182,7 +182,6 @@
 <script src="/js/img_preview.js"></script>
 <script>
     $("#btn-sku").click(function(){
-
         var html = `<hr><table width="100%"><tbody>
                     <tr>
                         <td class="label">SKU名称:</td>
@@ -211,12 +210,9 @@
                         </td>
                     </tr>
                     </tbody></table>`;
-
         $("#sku-container").append(html);
     })
-
     $("#btn-image").click(function(){
-
         var html = `<hr><table width="100%"><tbody>
                     <tr>
                         <td class="label"></td>
@@ -233,7 +229,6 @@
                     </tbody></table>`;
         
         $("#image-container").append(html);
-
         // 绑定预览事件
         $(".preview").change(function(){
             // 获取选择的图片
@@ -246,30 +241,24 @@
             $(this).before("<div class='img_preview'><img src='"+str+"' width='120' height='120'></div>");
         });
     })
-
     // 二三级分类的ID
     var cat2_id = "<?=$data['info']['cat2_id']?>";
     var cat3_id = "<?=$data['info']['cat3_id']?>";
-
     $("select[name=cat1_id]").change(function () {
         var id = $(this).val();
-
         if (id != "") {
-
             $.ajax({
                 type: "GET",
                 url: "/goods/ajax_get_cat?id=" + id,
                 dataType: "json",
                 success: function (data) {
                     var str = "";
-
                     for (var i = 0; i < data.data.length; i++) {
                         if(data.data[i].id == cat2_id)
                             str += '<option selected="selected" value="'+data.data[i].id+'">'+data.data[i].cat_name+'</option>';
                         else
                             str += '<option value="'+data.data[i].id+'">'+data.data[i].cat_name+'</option>';
                     }
-
                     // 把拼好的 option 放到第二个下拉框中
                     $("select[name=cat2_id]").html(str)
                     // 触发第二个框的 change 事件
@@ -281,7 +270,6 @@
             $("select[name=cat3_id]").html("")
         }
     })
-
     $("select[name=cat2_id]").change(function () {
         // 取出这个分类的id
         var id = $(this).val()
@@ -305,7 +293,6 @@
             });
         }
     });
-
     var attrStr = `<hr><table width="100%"><tbody>
                 <tr>
                     <td class="label">属性名称:</td>
@@ -334,31 +321,24 @@
         // 将字符串追回到页面中
         $("#attr-container").append(attrStr);
     })
-
     // 为删除按钮绑定事件
     function del_attr(o){
     
         if(confirm("确定要删除吗？")){
-
             var imageId = $(o).attr('image_id');
-
             if(imageId){
-
                 var oldId = $("input[name=del_image]").val();
-
                 if(oldId == ""){
                     $("input[name=del_image]").val(imageId);
                 }else {
                     $("input[name=del_image]").val(oldId +","+imageId);
                 }
             }
-
             var table = $(o).parent().parent().parent().parent();
             table.prev("hr").remove();
             table.remove();
         }
     }
-
     // 触发一级分类的change事件，让它直接取出二级分类
     $("select[name=cat1_id]").trigger("change");
 </script>

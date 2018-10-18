@@ -64,7 +64,7 @@ use PDO;
         $this->_after_write();
     }
 
-     // 接收表单中的数据
+    // 接收表单中的数据
     public function fill($data)
     {
         // 判断是否在白名单中
